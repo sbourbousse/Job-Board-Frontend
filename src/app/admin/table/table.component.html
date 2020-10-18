@@ -1,0 +1,17 @@
+<div class="mat-elevation-z8" id="table-container">
+  <table mat-table [dataSource]="dataSource" >
+
+    <!-- Position Column -->
+    <div *ngFor="let title of displayedColumns">
+        <ng-container matColumnDef="{{title}}">
+          <th mat-header-cell *matHeaderCellDef> {{title}} </th>
+          <!-- la valeur de la propriété (title) de l'objet (element) affiché en titre / affiche "---" si la valeur est null -->
+          <td mat-cell *matCellDef="let element">{{isElementDisplayable(element[title]) ? element[title] : "---"}}</td>
+        </ng-container>
+    </div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; let i = index; columns: displayedColumns;"  id="row{{i}}" (click)="editRow(i)"></tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+<div *ngIf="editedRows.length > 0" class="d-flex justify-content-center mt-3"><button mat-raised-button color="primary" (click)="send()">Appliquer</button></div>

@@ -1,0 +1,7 @@
+<mat-card *ngIf="!errorMessage">
+    <mat-card-title>{{ jobInfo.titre }}</mat-card-title>
+    <mat-card-subtitle>{{ jobInfo.date | date }}</mat-card-subtitle>
+    <mat-card-content>{{ jobInfo.contenu }}</mat-card-content>
+    <button mat-raised-button color="primary" routerLink="./apply">Je postule</button>
+</mat-card>
+<div class="text-center" *ngIf="errorMessage">{{errorMessage}}</div>

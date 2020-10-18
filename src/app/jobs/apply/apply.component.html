@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title>Je postule</mat-card-title>
+    <form [formGroup]="applyForm">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <mat-form-field class="full-width">
+                    <mat-label>Prenom</mat-label>
+                    <input matInput type="text" formControlName="firstName">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Nom</mat-label>
+                    <input matInput type="text" formControlName="lastName">
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <mat-label>Mail</mat-label>
+                    <input matInput type="email" formControlName="email">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="full-width ">
+                    <mat-label>Message</mat-label>
+                    <textarea matInput class="textarea-height" formControlName="message"></textarea>
+                </mat-form-field>
+            </div>
+            
+        </div>
+        <div class="row d-flex justify-content-around text-center">
+            <button mat-button color="primary" (click)="apply()">Envoyer</button>
+        </div>
+        <p class="text-center mt-2 text-danger">{{ errorMessage }}</p>
+
+    </form>
+</mat-card>

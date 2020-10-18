@@ -1,0 +1,20 @@
+
+<div class="choose-menu-actions mb-3">
+    <button mat-raised-button (click)="goToMenu()" [disabled]="!displayDataTable" > Revenir au menu </button>
+</div>
+<div class="choose-menu-container" *ngIf="!displayDataTable">
+    <mat-card (click)="displayPersonnes()">
+        <mat-card-title class="text-center">Utilisateurs</mat-card-title>
+    </mat-card>
+    <mat-card (click)="displayInformations()">
+        <mat-card-title class="text-center">Candidatures</mat-card-title>
+    </mat-card>
+    <mat-card (click)="displayEntreprises()">
+        <mat-card-title class="text-center">Enterprises</mat-card-title>
+    </mat-card>
+    <mat-card (click)="displayAnnonces()">
+        <mat-card-title class="text-center">Annonces</mat-card-title>
+    </mat-card>
+</div>
+<app-table [objectsToDisplay]="dataToDisplay" [objectsType]="objectsType" *ngIf="displayDataTable"></app-table>
+

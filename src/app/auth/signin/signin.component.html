@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-title>Connexion</mat-card-title>
+    <div class="row">
+        <div class="col-md-6 d-md-block d-sm-none d-none">
+            <img src="../../../assets/job-search.png" width="300" style="vertical-align: middle; display : inline-block; height: 100%; width:100%">
+        </div>
+        <div class="col-md-6 align-self-center">
+            <div class="row d-flex justify-content-center mt-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Entrez votre identifiant</mat-label>
+                    <input matInput placeholder="Votre identifiant" [formControl]="pseudo" required>
+                    <mat-error *ngIf="pseudo.invalid">{{getIdentifiantErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <mat-form-field appearance="fill">
+                    <mat-label>Entrez votre mot de passe</mat-label>                    
+                    <input matInput [type]="hide ? 'password' : 'text'" [formControl]="password" required>
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>  
+                    </button>
+                <mat-error *ngIf="password.invalid">{{getMotDePasseErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <button class="mx-2" mat-raised-button color="primary" (click)="connect()">Se connecter</button>
+                <button class="mx-2" mat-raised-button routerLink="/signup">S'inscrire</button>
+            </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <p class="text-danger">{{ errorMessage }}</p>
+            </div>
+        </div>
+    </div>
+
+</mat-card>

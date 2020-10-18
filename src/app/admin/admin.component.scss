@@ -1,0 +1,15 @@
+.choose-menu-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    mat-card {
+        width:300px;
+        height: 200px;
+        margin: 20px;
+    }
+}
+.choose-menu-actions{
+    width:100%;
+    padding-left: 2%;
+}
